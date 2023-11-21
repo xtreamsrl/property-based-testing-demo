@@ -5,7 +5,6 @@ if __name__ == '__main__':
     # I ignore some warning, don't worry is all under control!
     warnings.filterwarnings("ignore")
 
-    # TODO: show some strategy
     strategy = st.integers()
 
     for _ in range(5):
