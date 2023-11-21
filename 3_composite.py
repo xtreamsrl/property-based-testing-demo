@@ -7,7 +7,6 @@ from hypothesis import given
 from pandas._testing import assert_frame_equal
 
 
-# Yes Marta, it's not a hallucination nor a nightmare, it's the European Scenario code.
 def assign_season_label(df: pd.DataFrame, time_column: str) -> pd.DataFrame:
     mask_sum = df[time_column].dt.month.isin([6, 7, 8])
     mask_spri = df[time_column].dt.month.isin([3, 4, 5])

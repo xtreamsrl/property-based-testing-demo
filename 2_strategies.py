@@ -3,10 +3,10 @@ import warnings
 
 if __name__ == '__main__':
     # I ignore some warning, don't worry is all under control!
-    # warnings.filterwarnings("ignore")
+    warnings.filterwarnings("ignore")
 
     # TODO: show some strategy
-    strategy = st.lists(st.tuples(st.booleans(), st.integers(min_value=-23, max_value=150)), min_size=0, max_size=500)
+    strategy = st.integers()
 
     for _ in range(5):
         print(strategy.example())
