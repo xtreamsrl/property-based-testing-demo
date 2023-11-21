@@ -32,6 +32,10 @@ def random_dataframe_with_a_date_column_strategy(draw):
 )
 def test_temporal_train_test_split(data, split_date):
     train, test = temporal_train_test_split(data, split_date)
+
+    assert (train["date"] <= split_date).all()
+    assert (test["date"] > split_date).all()
+
     concatenated = (
         pd.concat([train, test])
         .sort_values(["date", "x1", "x2"])
@@ -39,6 +43,4 @@ def test_temporal_train_test_split(data, split_date):
     )
     sorted_input = data.sort_values(["date", "x1", "x2"]).reset_index(drop=True)
 
-    assert (train["date"] <= split_date).all()
-    assert (test["date"] > split_date).all()
     assert concatenated.equals(sorted_input)
