@@ -5,7 +5,7 @@ if __name__ == '__main__':
     # I ignore some warning, don't worry is all under control!
     warnings.filterwarnings("ignore")
 
-    strategy = st.integers()
+    strategy = st.tuples(st.lists(st.integers(min_value=0, max_value=100)))
 
     for _ in range(5):
         print(strategy.example())
